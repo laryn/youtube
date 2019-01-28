@@ -31,7 +31,7 @@ function youtube_token_info_alter(&$data) {
   }
 
   foreach ($youtube_fields as $field) {
-    if ($field['entity_type'] != 'paragraphs_item') {
+    if (isset($data['tokens'][$field['entity_type']])) {
       $field_info = field_info_instance($field['entity_type'], $field['field_name'], $field['bundle']);
       $field_label = $field_info['label'];
   
